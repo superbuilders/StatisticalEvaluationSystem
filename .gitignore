@@ -1,0 +1,14 @@
+# Environment variables
+.env
+
+# Node modules
+node_modules/
+
+# Python
+.venv/
+
+# Sequelize
+.sequelize/
+
+# Logs
+logs/
