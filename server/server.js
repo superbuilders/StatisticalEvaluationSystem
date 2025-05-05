@@ -45,6 +45,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bo
 const llmProviderRoutes = require('./routes/llmProviderRoutes');
 const promptRoutes = require('./routes/promptRoutes'); // Import prompt routes
 const llmModelRoutes = require('./routes/llmModelRoutes'); // Import model routes
+const llmPromptRoutes = require('./routes/llmPromptRoutes'); // Import llm_prompt routes
 
 // Root Route
 app.get('/', (req, res) => {
@@ -55,6 +56,7 @@ app.get('/', (req, res) => {
 app.use('/api/v1/llm_provider', llmProviderRoutes);
 app.use('/api/v1/prompt', promptRoutes); // Mount prompt routes
 app.use('/api/v1/llm_model', llmModelRoutes); // Mount model routes
+app.use('/api/v1/llm_prompt', llmPromptRoutes); // Mount llm_prompt routes
 // TODO: Add routes for other entities (e.g., /api/v1/models)
 
 // --- API Playground Route ---
