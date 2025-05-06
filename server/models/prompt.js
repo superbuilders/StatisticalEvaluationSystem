@@ -12,6 +12,14 @@ module.exports = (sequelize) => {
       // define association here
       // Example: Prompt.belongsToMany(models.LLMModel, { through: 'LLMPrompt', foreignKey: 'prompt_id', as: 'models' });
       // Example: Prompt.belongsToMany(models.Evaluator, { through: 'UserPrompt', foreignKey: 'prompt_id', as: 'users' });
+
+      // Add association to Evaluator through UserPrompt
+      Prompt.belongsToMany(models.Evaluator, {
+        through: models.UserPrompt, // The junction model
+        foreignKey: 'prompt_id', // Foreign key in the junction table that points to Prompt
+        otherKey: 'user_id', // Foreign key in the junction table that points to Evaluator
+        as: 'evaluators' // Alias to access associated evaluators from a prompt instance
+      });
     }
   }
 
